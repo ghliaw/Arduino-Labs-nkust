@@ -1,9 +1,14 @@
+#define RED_LED 9
+#define POTENTIOMETER A0
 void setup() {
-  // put your setup code here, to run once:
-
+  Serial.begin(9600);
+  pinMode(RED_LED, OUTPUT);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  int value;
 
+  value = analogRead(POTENTIOMETER);
+  Serial.println(value);
+  analogWrite(RED_LED, 255-(value/4));
 }

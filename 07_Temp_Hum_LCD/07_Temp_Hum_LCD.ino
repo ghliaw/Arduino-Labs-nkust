@@ -70,8 +70,14 @@ void loop()
         lcd.print(" \%");
         
         // if value > limit, LED on; else LED off
-        // (WRITE IT BY YOURSELF!!)
-
+        if(t >= TEMP_LIMIT)
+          digitalWrite(LED_TEMP, HIGH);
+        else
+          digitalWrite(LED_TEMP, LOW);
+        if(h >= HUM_LIMIT)
+          digitalWrite(LED_HUM, HIGH);
+        else
+          digitalWrite(LED_HUM, LOW);
     }
     delay(2000);
 }
